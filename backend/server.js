@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-// const Data = require("./data");
+const Data = require("./data");
 
 const API_PORT = 3001;
 const app = express();
 const router = express.Router();
 
-const dbRoute = "mongodb://user route goes here.";
+const dbRoute = "mongodb://j_gary_181216:banana_candle8@ds237574.mlab.com:37574/node-react-181216";
 
 mongoose.connect(
   dbRoute,
