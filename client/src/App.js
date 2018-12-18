@@ -85,6 +85,7 @@ class App extends Component {
     return (
       <div>
         <ul>
+          {/* display database entries */}
           {data.length <= 0
             ? "NO DB ENTRIES YET"
             : data.map(dat => (
@@ -97,6 +98,23 @@ class App extends Component {
                 </li>
               ))}
         </ul>
+
+        <div style={{ padding: "10px" }}>
+          {/* delete entry */}
+          <input
+            type="text"
+            style={{ width: "200px" }}
+            onChange={e => this.setState({ idToDelete: e.target.value })}
+            placeholder="ID of item to delete goes here"
+          />
+          <button onClick={() => this.deleteFromDB(this.state.idToDelete)}>
+            DELETE
+          </button>
+        </div>
+
+        <div style={{padding:"10px"}}>
+
+        </div>
       </div>
     );
   }
