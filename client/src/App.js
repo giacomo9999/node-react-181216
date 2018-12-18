@@ -112,8 +112,27 @@ class App extends Component {
           </button>
         </div>
 
-        <div style={{padding:"10px"}}>
-
+        <div style={{ padding: "10px" }}>
+          {/* update entry */}
+          <input
+            type="text"
+            style={{ width: "200px" }}
+            onChange={e => this.setState({ idToUpdate: e.target.value })}
+            placeholder="ID of item to update goes here"
+          />
+          <input
+            type="text"
+            style={{ width: "200px" }}
+            onChange={e => this.setState({ updateToApply: e.target.value })}
+            placeholder="put new value of item here"
+          />
+          <button
+            onClick={() =>
+              this.updateDB(this.state.idToUpdate, this.state.updateToApply)
+            }
+          >
+            UPDATE
+          </button>
         </div>
       </div>
     );

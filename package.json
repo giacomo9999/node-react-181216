@@ -1,0 +1,23 @@
+{
+  "name": "node-and-react-181216",
+  "version": "1.0.0",
+  "description": "Based on tutorial at: https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giacomo9999/node-react-181216.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giacomo9999/node-react-181216/issues"
+  },
+  "homepage": "https://github.com/giacomo9999/node-react-181216#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
