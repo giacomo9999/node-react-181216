@@ -99,6 +99,20 @@ class App extends Component {
               ))}
         </ul>
 
+        <div style={{padding:"10px"}}>
+        {/* add entry */}
+        <input
+            type="text"
+            style={{ width: "200px" }}
+            onChange={e => this.setState({ message: e.target.value })}
+            placeholder="ID of item to add goes here"
+          />
+          <button onClick={() => this.putDataToDB(this.state.message)}>
+            ADD
+          </button>
+        </div>
+        
+
         <div style={{ padding: "10px" }}>
           {/* delete entry */}
           <input

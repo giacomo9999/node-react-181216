@@ -4,7 +4,8 @@
   "description": "Based on tutorial at: https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"concurrently \"cd backend && node server.js\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
