@@ -32,6 +32,14 @@ class App extends Component {
     }
   }
 
+  // use backend API to fetch data from database
+  getDataFromDb = () => {
+    fetch("/api/getData")
+      .then(data => data.json())
+      .then(res => this.setState({ data: res.data }));
+  };
+
+  // use backend API to create new query in database
   putDataToDB = message => {
     let currentIds = this.state.data.map(data => data.id);
     let idToBeAdded = 0;
@@ -40,12 +48,57 @@ class App extends Component {
     }
     axios.post("/api/putData", {
       id: idToBeAdded,
-      message: message,
+      message: message
+    });
+  };
+
+  // use backend API to remove existing database information
+  deleteFromDB = idToDelete => {
+    let objIdToDelete = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToDelete) {
+        objIdToDelete = dat._id;
+      }
+    });
+    axios.delete("/api/deleteData", {
+      data: {
+        id: objIdToDelete
+      }
+    });
+  };
+
+  updateDB = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+    axios.post("/api/updateData", {
+      id: objIdToUpdate,
+      update: { message: updateToApply }
     });
   };
 
   render() {
-    return <div>JIM IS STILL HERE</div>;
+    const { data } = this.state;
+    return (
+      <div>
+        <ul>
+          {data.length <= 0
+            ? "NO DB ENTRIES YET"
+            : data.map(dat => (
+                <li style={{ padding: "10px" }} key={data.message}>
+                  <span style={{ color: "gray" }}>id:</span>
+                  {dat.id}
+                  <br />
+                  <span style={{ color: "gray" }}>data</span>
+                  {dat.message}
+                </li>
+              ))}
+        </ul>
+      </div>
+    );
   }
 }
 
